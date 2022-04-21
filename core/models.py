@@ -8,8 +8,8 @@ class Place(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     image = models.ImageField(upload_to="images",height_field=None, width_field=None, max_length = None)
-    created_at = models.DateField(auto_now=False,auto_now_add=False)
-    updated_at = models.DateField(auto_now=False,auto_now_add=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
