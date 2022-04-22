@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (
-    APIOverview,
     HomeView,
+    APIEndpoints,
+    APIGetSpecificPlace,
     APICreatePlace,
     APIEditPlace,
     APIListPlace,
@@ -9,10 +10,10 @@ from .views import (
 
 
 urlpatterns = [
-    path('',HomeView.as_view(), name ='home'),
-    path('api/',APIOverview.as_view(),name='overview'),
-    path('api/list/',APIListPlace.as_view(), name='list'),
-    path('api/create/',APICreatePlace.as_view(), name='create'),
-    path('api/edit/<int:pk>/',APIEditPlace.as_view(), name='edit'),
-    path('api/<int:pk>/',APIListPlace.as_view(), name='detail')
+    # path('',HomeView.as_view(), name ='home'),
+    path('',APIEndpoints.as_view(),name='overview'),
+    path('places/',APIListPlace.as_view(), name='list'),
+    path('places/new/',APICreatePlace.as_view(), name='create'),
+    path('places/edit/<int:pk>/',APIEditPlace.as_view(), name='edit'),
+    path('places/<int:pk>/',APIGetSpecificPlace.as_view(), name='detail')
 ]

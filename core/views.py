@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-
 from .models import Place
 from .serializers import PlaceSerializer
 
@@ -17,13 +16,13 @@ from rest_framework.response import Response
 class HomeView(TemplateView):
     template_name = "core/home.html"
 
-class APIOverview(APIView):
+class APIEndpoints(APIView):
     def get(self, request, format=None):
         api_urls = {
-            'List Place': 'list/',
-            'Get Specific Place': 'detail/<int:pk>/',
-            'Create Place':'create/',
-            'Edit Place':'edit/<int:pk>',
+            'GET - List Place': 'places/',
+            'GET - Get Specific Place': 'places/1/',
+            'POST - Create Place':'places/new',
+            'PUT - Edit Place':'places/edit/1',
         }
         
         return Response(api_urls)
