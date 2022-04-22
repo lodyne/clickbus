@@ -23,12 +23,12 @@ PS: Make sure you have installed Python in your PC.
 
 ### Make Virtual Environment
 
-After installing virtual environment, you have to make vitual environment for your preference.
+After installing virtual environment, you have to make vitual environment for your preference.  
 ```mkvirtualenv clickbus```
 
 ### Clone the Application
 
-Then clone the entire application from github into the folder you created locally.
+Then clone the entire application from github into the folder you created locally.  
 ```git clone https://github.com/lodyne/clickbus.git```
 
 ### Run the App
@@ -108,12 +108,13 @@ EndPoint: <http://localhost:8000/place/1>
 
 ## Summary of EndPoints
 
-    `GET/places/` - [List Places]: (http://localhost:8000/places/)
-    `GET/places/1/` - [Get Specific Place]: (http://localhost:8000/place/1)
-    `POST/places/new` - [Create Place]: (http://localhost:8000/places/new)
-    `PUT/places/edit/1` - [Edit Place]: (http://localhost:8000/places/edit/1)
+`GET/places/` - List Places: (<http://localhost:8000/places/>)
+`GET/places/1/` - Get Specific Place: <http://localhost:8000/place/1>
+`POST/places/new` - Create Place: <http://localhost:8000/places/new>
+`PUT/places/edit/1` - Edit Place: (<http://localhost:8000/places/edit/1>)
 
 ## Login Credentials
 
-Username: TestUser
-Password: darkknight123
+### Username: TestUser
+
+### Password: darkknight

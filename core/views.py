@@ -7,6 +7,8 @@ from .serializers import PlaceSerializer
 from rest_framework import  generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 
 # Create your views here.
@@ -27,6 +29,14 @@ class APIEndpoints(APIView):
         
         return Response(api_urls)
 
+#* A view API to list place and filter by name 
+class APIListPlace(generics.ListAPIView):
+    queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name']
+    # filter_field = ('name','city')
+
 #* A view API to create a place
 class APICreatePlace(generics.ListCreateAPIView):
     queryset = Place.objects.all()
@@ -37,10 +47,7 @@ class APIEditPlace(generics.RetrieveUpdateAPIView):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
-#* A view API to list place and filter by name 
-class APIListPlace(generics.ListAPIView):
-    queryset = Place.objects.all()
-    serializer_class = PlaceSerializer
+
 
 #* A view API to get a specific place 
 class APIGetSpecificPlace(generics.RetrieveAPIView):
