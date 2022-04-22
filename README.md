@@ -7,7 +7,7 @@ The application is built by using Django - A Python Backend Framework.
 Also, it uses Django Rest Framework (DRF) - A library to create REST API
 and other packages found in ```requirements.txt```.
 
-## How to Run
+## How to Use
 
 Create new folder anywhere in your PC eg. In Desktop - create clickbus folder.
 Open Command Prompt (cmd) in a path of created folder, then install package for
@@ -16,20 +16,24 @@ virtual environment.
 ### Install Virtual Environment
 
 When dealing with django, it is advised to use virtual environment so as
-to make sure the dependencies from various projects do not collide.
-Eg. on windows: - ``` pip install virtualenvwrapper-win ```
+to make sure the dependencies from various projects do not collide.Eg. on windows: -
+ ``` pip install virtualenvwrapper-win ```
 
-PS: Make sure you have installed Python in your PC
+PS: Make sure you have installed Python in your PC.
 
 ### Make Virtual Environment
 
-After installing virtual environment, you have to make vitual environment for your
-preference. ```mkvirtualenv clickbus```
+After installing virtual environment, you have to make vitual environment for your preference.
+```mkvirtualenv clickbus```
 
 ### Clone the Application
 
 Then clone the entire application from github into the folder you created locally.
 ```git clone https://github.com/lodyne/clickbus.git```
+
+### Run the App
+
+```python manage.py runserver```
 
 ## REST API
 
@@ -104,7 +108,7 @@ EndPoint: <http://localhost:8000/place/1>
 
 ## Summary of EndPoints
 
-    `GET/places/` - List Places: <http://localhost:8000/places/>
-    `PUT/places/edit/1` - Edit Place: <http://localhost:8000/places/edit/1>
-    `POST/places/new` - Create Place: <http://localhost:8000/places/new>
-    `GET/places/1/` - Get Specific Place: <http://localhost:8000/place/1>
+    `GET/places/` - List Places: http://localhost:8000/places/
+    `GET/places/1/` - Get Specific Place: http://localhost:8000/place/1
+    `POST/places/new` - Create Place: http://localhost:8000/places/new
+    `PUT/places/edit/1` - Edit Place: http://localhost:8000/places/edit/1
