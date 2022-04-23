@@ -35,6 +35,12 @@ Then clone the entire application from github into the folder you created locall
 
 ```python manage.py runserver```
 
+### Heroku Link
+
+Application is deployed in Heroku.  
+
+<https://clickbusapi.herokuapp.com/>
+
 ## REST API
 
 The REST API to the ClickBus app is described below.
