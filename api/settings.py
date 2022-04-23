@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 import dj_database_url
+import django_heroku
 from pathlib import Path
 from decouple import config
 
@@ -62,8 +63,8 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -109,11 +110,10 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=config('DATABASE_URL')
-#     )
-# }
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
+
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
@@ -176,8 +176,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+django_heroku.settings(locals())
+
 
 
