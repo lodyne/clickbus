@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 import dj_database_url
-import django_heroku
+# import django_heroku
 from pathlib import Path
 from decouple import config
 
@@ -183,7 +183,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 
 
