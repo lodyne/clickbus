@@ -114,13 +114,13 @@ EndPoint: <http://localhost:8000/place/1>
 
 ## Summary of EndPoints
 
-`GET/places/` - List Places: </places>  
+`GET/places/` - List Places: [/places](https://clickbusapi.herokuapp.com/places/)  
 
-`GET/places/1/` - Get Specific Place: </places/1>  
+`GET/places/1/` - Get Specific Place: [/places/1](https://clickbusapi.herokuapp.com/places/1/)  
 
-`POST/places/new` - Create Place: </places/new>  
+`POST/places/new` - Create Place: [/places/new](https://clickbusapi.herokuapp.com/places/new/)  
 
-`PUT/places/edit/1` - Edit Place: </places/edit/1>
+`PUT/places/edit/1` - Edit Place: [/places/edit/1](https://clickbusapi.herokuapp.com/places/edit/1/)
 
 ## Login Credentials
 
