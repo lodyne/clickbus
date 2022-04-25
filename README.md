@@ -114,13 +114,13 @@ EndPoint: <http://localhost:8000/place/1>
 
 ## Summary of EndPoints
 
-`GET/places/` - List Places: <http://localhost:8000/places/>  
+`GET/places/` - List Places: </places/>  
   
-`GET/places/1/` - Get Specific Place: <http://localhost:8000/places/1>  
+`GET/places/1/` - Get Specific Place: </places/1>  
 
-`POST/places/new` - Create Place: <http://localhost:8000/places/new>  
+`POST/places/new` - Create Place: </places/new>  
 
-`PUT/places/edit/1` - Edit Place: <http://localhost:8000/places/edit/1>
+`PUT/places/edit/1` - Edit Place: </places/edit/1>
 
 ## Login Credentials
 
