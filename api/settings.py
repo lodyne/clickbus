@@ -34,7 +34,11 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG',default=False, cast = bool)
 
-ALLOWED_HOSTS = ['clickbus-api.herokuapp.com']
+ALLOWED_HOSTS = [
+        'clickbusapi.herokuapp.com',
+        '127.0.0.1',
+        'localhost'
+    ]
 
 
 # Application definition
@@ -117,6 +121,7 @@ DATABASES['default'].update(prod_db)
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
+    'http://clickbusapi.herokuapp.com'
 )
 
 # Password validation

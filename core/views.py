@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .models import Place
 from .serializers import PlaceSerializer
 
-from rest_framework import  generics
+from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
@@ -18,13 +18,13 @@ from django_filters.rest_framework import DjangoFilterBackend
 class HomeView(TemplateView):
     template_name = "core/home.html"
 
-class APIEndpoints(APIView):
+class APIEndpoints(APIView): 
     def get(self, request, format=None):
         api_urls = {
-            'GET - List Place': 'places/',
-            'GET - Get Specific Place': 'places/1/',
-            'POST - Create Place':'places/new',
-            'PUT - Edit Place':'places/edit/1',
+            'GET - List Place': '/places',
+            'GET - Get Specific Place': '/places/1',
+            'POST - Create Place':'/places/new',
+            'PUT - Edit Place':'/places/edit/1',
         }
         
         return Response(api_urls)
