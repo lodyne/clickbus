@@ -115,7 +115,7 @@ EndPoint: <http://localhost:8000/place/1>
 ## Summary of EndPoints
 
 `GET/places/` - List Places: </places>  
-  
+
 `GET/places/1/` - Get Specific Place: </places/1>  
 
 `POST/places/new` - Create Place: </places/new>  
