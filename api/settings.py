@@ -67,7 +67,18 @@ REST_FRAMEWORK = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        #* default - any user, authenticated or not, is allowed
+        # 'rest_framework.permissions.AllowAny', 
+
+        #* only authenticated, registered users are allowed
+        # 'rest_framework.permissions.IsAuthenticated',
+
+        #* only admins/superusers have access
+        'rest_framework.permissions.IsAdminUser',
+
+        #* unauthorized users can view any page, but only
+        #* authenticated users have write, edit, or delete privileges
+        # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ]
 }
 
