@@ -66,6 +66,7 @@ REST_FRAMEWORK = {
 }
 
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

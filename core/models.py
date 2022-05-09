@@ -11,12 +11,13 @@ class Place(models.Model):
     image = models.ImageField(upload_to="images",height_field=None, width_field=None, max_length = None)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+    
 
     def __str__(self):
         return self.name
     
     def get_absolute_url(self):
-        return reverse("place_detail", kwargs={"slug": self.slug})
+        return reverse("detail", kwargs={"slug": self.slug})
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

@@ -15,5 +15,6 @@ urlpatterns = [
     path('places/',APIListPlace.as_view(), name='list'),
     path('places/new/',APICreatePlace.as_view(), name='create'),
     path('places/edit/<int:pk>/',APIEditPlace.as_view(), name='edit'),
-    path('places/<int:pk>/',APIGetSpecificPlace.as_view(), name='detail')
+    path('places/<int:pk>/',APIGetSpecificPlace.as_view(), name='detail'),
+    # path('places/<slug:slug>',APIGetSpecificPlace.as_view(), name='detail')
 ]

@@ -7,6 +7,7 @@ from .serializers import PlaceSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -18,16 +19,24 @@ from django_filters.rest_framework import DjangoFilterBackend
 class HomeView(TemplateView):
     template_name = "core/home.html"
 
-class APIEndpoints(APIView): 
+#* A view API to list all endpoints
+class APIEndpoints(APIView):
+    '''
+        This view displays all endpoints and helps to document my API. 
+    '''
     def get(self, request, format=None):
         api_urls = {
-            'GET - List Place': '/places',
-            'GET - Get Specific Place': '/places/1',
-            'POST - Create Place':'/places/new',
-            'PUT - Edit Place':'/places/edit/1',
+            'GET - List Place': reverse('list',request=request,format=format),
+            # 'GET - Get Specific Place': reverse('detail',request=request,format=format),
+            # 'POST - Create Place': reverse('create',request=request,format=format),
+            # 'PUT - Edit Place': reverse('edit',request=request,format=format),
         }
         
         return Response(api_urls)
+
+        # return Response({
+        #     'places': reverse('list',request=request,format=format)
+        # })
 
 #* A view API to list place and filter by name 
 class APIListPlace(generics.ListAPIView):
@@ -37,16 +46,17 @@ class APIListPlace(generics.ListAPIView):
     filterset_fields = ['name']
     # filter_field = ('name','city')
 
+
 #* A view API to create a place
 class APICreatePlace(generics.ListCreateAPIView):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
+
 #* A view API to edit a place 
 class APIEditPlace(generics.RetrieveUpdateAPIView):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
-
 
 
 #* A view API to get a specific place 
