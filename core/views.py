@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .models import Place
 from .serializers import PlaceSerializer
 
-from rest_framework import generics
+from rest_framework import generics,permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -40,6 +40,7 @@ class APIEndpoints(APIView):
 
 #* A view API to list place and filter by name 
 class APIListPlace(generics.ListAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
     filter_backends = [DjangoFilterBackend]
@@ -49,18 +50,21 @@ class APIListPlace(generics.ListAPIView):
 
 #* A view API to create a place
 class APICreatePlace(generics.ListCreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
 
 #* A view API to edit a place 
 class APIEditPlace(generics.RetrieveUpdateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
 
 #* A view API to get a specific place 
 class APIGetSpecificPlace(generics.RetrieveAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
