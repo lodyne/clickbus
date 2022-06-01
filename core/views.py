@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.contrib.auth import get_user_model
 
 from .models import Place
-from .serializers import PlaceSerializer
+from .serializers import (
+    PlaceSerializer,
+    UserSerializer,
+)
 
 from rest_framework import generics,permissions
 from rest_framework.views import APIView
@@ -56,7 +60,7 @@ class APICreatePlace(generics.ListCreateAPIView):
 
 
 #* A view API to edit a place 
-class APIEditPlace(generics.RetrieveUpdateAPIView):
+class APIEditPlace(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = (permissions.IsAuthenticated,)
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
@@ -68,3 +72,10 @@ class APIGetSpecificPlace(generics.RetrieveAPIView):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
+class APIUserList(generics.ListAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
+
+class APIUserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
